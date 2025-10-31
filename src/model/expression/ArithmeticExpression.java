@@ -24,7 +24,7 @@ public record ArithmeticExpression(String operator, Expression left, Expression 
                     throw new ExpressionsEvaluation("Division by zero");
                 yield new IntegerValue(leftValue.value() / rightValue.value());
             }
-            default -> throw new ExpressionsEvaluation("Arithmetic operator not recognized");
+            default -> throw new ExpressionsEvaluation("Arithmetic operator -> \"" + this.operator + "\" is not recognized");
         };
 
     }

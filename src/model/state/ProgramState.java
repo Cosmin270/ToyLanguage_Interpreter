@@ -31,8 +31,16 @@ public class ProgramState{
 
     @Override
     public String toString(){
-        return "Execution Stack: " + this.executionStack.toString() +
-                "\nSymbol Table: " + this.symbolTable.toString() +
-                "\nOut: " + this.out.toString();
+
+        String red = "\u001B[31m";
+        String green = "\u001B[32m";
+        String yellow = "\u001B[33m";
+        String blue = "\u001B[34m";
+        String reset = "\u001B[0m";
+        String cyan = "\u001B[38;5;45m";
+        String whiteV2 = "\u001B[97m";
+        return  cyan + "Execution Stack: " + reset + whiteV2 + this.executionStack.toString() + reset + cyan +
+                "\nSymbol Table: " + reset + whiteV2 + this.symbolTable.toString() + reset + cyan +
+                "\nOut: " + reset + whiteV2 + this.out.toString() + reset;
     }
 }

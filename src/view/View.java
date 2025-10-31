@@ -17,6 +17,8 @@ import model.value.IntegerValue;
 
 import javax.management.ValueExp;
 import javax.swing.plaf.nimbus.State;
+import java.sql.SQLOutput;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,35 +30,54 @@ public class View {
     }
 
     private void menu(){
-        System.out.println("---------------------");
-        System.out.println("1.int v; v=2;Print(v)");
-        System.out.println("2.int a;int b; a=2+3*5;b=a+1;Print(b)");
-        System.out.println("3.bool a; int v; a=true;(If a Then v=2 Else v=3);Print(v)");
-        System.out.println("0.Exit");
-        System.out.println("---------------------");
+
+        String reset = "\u001B[0m";
+        String green = "\u001B[32m";
+        String white = "\u001B[37m";
+        String greenV2 = "\u001B[92m";
+        String whiteV2 = "\u001B[97m";
+        String gray = "\u001B[38;5;250m";
+
+        System.out.println(white + "---------------------" + reset);
+        System.out.println(gray + "1." + reset + whiteV2 + "int v; v=2;Print(v)" + reset);
+        System.out.println(gray + "2." + reset + whiteV2 +"int a;int b; a=2+3*5;b=a+1;Print(b)" + reset);
+        System.out.println(gray + "3." + reset + whiteV2 +"bool a; int v; a=true;(If a Then v=2 Else v=3);Print(v)" + reset);
+        System.out.println(gray + "0." + reset + whiteV2  +"Exit\uD83D\uDED1" + reset);
+        System.out.println(white + "---------------------" + reset);
     }
 
 
 
     public void start(){
-        System.out.println("-------------------------");
-        System.out.println("Welcome to Toy Language");
-        System.out.println("-------------------------");
+
+        String blue = "\u001B[34m";
+        String reset = "\u001B[0m";
+        String white = "\u001B[37m";
+        String peach = "\u001B[38;5;209m";
+        String red = "\u001B[91m";
+
+
+        System.out.println(white + "------------\uD83E\uDDD1\uD83C\uDFFB\u200D\uD83D\uDCBB-------------" + reset);
+        System.out.println(blue + "\uD83D\uDE82Welcome to Toy Language\uD83E\uDDF8" + reset);
+        System.out.println(white +"-------------------------" + reset);
         System.out.println();
 
-
+        int fails = 0;
         boolean exit = false;
         while(!exit){
             menu();
-            System.out.print(">");
+            System.out.print("\uD83E\uDEF4");
             Scanner input = new Scanner(System.in);
-            int choice = input.nextInt();
+            int choice = 0;
             try {
+                choice = input.nextInt();
                 switch (choice) {
                     case 0 -> {
                         exit = true;
+                        System.out.println(peach + "\uD83D\uDC4BSEE YOU SOON!\uD83E\uDD17" + reset);
                     }
                     case 1 -> {
+                        fails = 0;
                         Statement s1 = new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
                                 new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntegerValue(2))),
                                         new PrintStatement(new VariableExpression("v"))));
@@ -65,9 +86,10 @@ public class View {
                         exec(list);
                     }
                     case 2 -> {
+                        fails = 0;
                         Statement s2 = new CompoundStatement(new VariableDeclarationStatement("a", new IntType()),
                                 new CompoundStatement(new VariableDeclarationStatement("b", new IntType()),
-                                        new CompoundStatement(new AssignmentStatement("a", new ArithmeticExpression("+", new ValueExpression(new IntegerValue(2)), new ArithmeticExpression("*", new ValueExpression(new IntegerValue(3)),
+                                        new CompoundStatement(new AssignmentStatement("a", new ArithmeticExpression("{", new ValueExpression(new IntegerValue(2)), new ArithmeticExpression("*", new ValueExpression(new IntegerValue(3)),
                                                 new ValueExpression(new IntegerValue(5))))), new CompoundStatement(new AssignmentStatement("b", new ArithmeticExpression("+", new VariableExpression("a"), new ValueExpression(new IntegerValue(1)))),
                                                 new PrintStatement(new VariableExpression("b"))))));
                         this.controller.addProgram(new ProgramState(s2));
@@ -75,6 +97,7 @@ public class View {
                         exec(list);
                     }
                     case 3 -> {
+                        fails = 0;
                         Statement s3 = new CompoundStatement(new VariableDeclarationStatement("a", new BooleanType()),
                                 new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
                                         new CompoundStatement(new AssignmentStatement("a", new ValueExpression(new BooleanValue(true))),
@@ -83,22 +106,45 @@ public class View {
                         this.controller.addProgram(new ProgramState(s3));
                         List<String> list = this.controller.allStep();
                         exec(list);
+
+
                     }
                 }
             }catch (ControllerException | ExpressionsEvaluation | ADTException | StatementException e){
-                System.out.println(e.getMessage());
+                if(fails>=2){
+                    System.out.println(red +"REALLY?\uD83E\uDD28" + reset);
+                }
+                System.out.println(red + "\uD83E\uDD37\u200D\uFE0F" + e.getMessage() + "\uD83D\uDC94" + reset);
+                fails++;
+            } catch (InputMismatchException e) {
+                if(fails>=2){
+                    System.out.println(red +"REALLY?\uD83E\uDD28" + reset);
+                }
+                System.out.println(red + "\uD83E\uDD37\u200D\uFE0FInvalid Input\uD83D\uDC94" + reset);
+                fails++;
             }
         }
     }
 
     private void exec(List<String> list){
-        int cnt = 0;
+        int cnt = 1;
+
+        String blue = "\u001B[34m";
+        String reset = "\u001B[0m";
+        String white = "\u001B[37m";
+        String whiteV2 = "\u001B[97m";
+        String red = "\u001B[31m";
+
         for(String s : list){
-            System.out.println("----------");
+            System.out.println(blue + "~~~~~~~~~~~~~~~~" + reset + whiteV2 + cnt +reset + blue + "~~~~~~~~~~~~~~~~" + reset);
+            System.out.println(white + "----------" + reset);
             System.out.println(s);
-            System.out.println("----------");
+            System.out.println(white + "----------" + reset);
             System.out.println();
+            cnt += 1;
         }
 
+        System.out.println(red + "~~~~~~~~~~~~~~THE END\uD83D\uDC4C\uD83C\uDFFB~~~~~~~~~~~~~~" + reset);
+        System.out.println();
     }
 }
