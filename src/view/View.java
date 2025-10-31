@@ -17,13 +17,18 @@ import model.value.IntegerValue;
 
 import javax.management.ValueExp;
 import javax.swing.plaf.nimbus.State;
-import java.sql.SQLOutput;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+
+
+
+
+
+
 public class View {
-    private Controller controller;
+    private final Controller controller;
 
     public View(){
         this.controller = new Controller();
@@ -50,16 +55,11 @@ public class View {
 
     public void start(){
 
-        String blue = "\u001B[34m";
-        String reset = "\u001B[0m";
-        String white = "\u001B[37m";
-        String peach = "\u001B[38;5;209m";
-        String red = "\u001B[91m";
 
 
-        System.out.println(white + "------------\uD83E\uDDD1\uD83C\uDFFB\u200D\uD83D\uDCBB-------------" + reset);
-        System.out.println(blue + "\uD83D\uDE82Welcome to Toy Language\uD83E\uDDF8" + reset);
-        System.out.println(white +"-------------------------" + reset);
+        System.out.println(Colors.WHITE + "------------\uD83E\uDDD1\uD83C\uDFFB\u200D\uD83D\uDCBB-------------" + Colors.RESET);
+        System.out.println(Colors.BLUE + "\uD83D\uDE82Welcome to Toy Language\uD83E\uDDF8" + Colors.RESET);
+        System.out.println(Colors.WHITE +"-------------------------" + Colors.RESET);
         System.out.println();
 
         int fails = 0;
@@ -74,7 +74,7 @@ public class View {
                 switch (choice) {
                     case 0 -> {
                         exit = true;
-                        System.out.println(peach + "\uD83D\uDC4BSEE YOU SOON!\uD83E\uDD17" + reset);
+                        System.out.println(Colors.PEACH + "\uD83D\uDC4BSEE YOU SOON!\uD83E\uDD17" + Colors.RESET);
                     }
                     case 1 -> {
                         fails = 0;
@@ -112,15 +112,15 @@ public class View {
                 }
             }catch (ControllerException | ExpressionsEvaluation | ADTException | StatementException e){
                 if(fails>=2){
-                    System.out.println(red +"REALLY?\uD83E\uDD28" + reset);
+                    System.out.println(Colors.RED +"REALLY?\uD83E\uDD28" + Colors.RESET);
                 }
-                System.out.println(red + "\uD83E\uDD37\u200D\uFE0F" + e.getMessage() + "\uD83D\uDC94" + reset);
+                System.out.println(Colors.RED + "\uD83E\uDD37\u200D\uFE0F" + e.getMessage() + "\uD83D\uDC94" + Colors.RESET);
                 fails++;
             } catch (InputMismatchException e) {
                 if(fails>=2){
-                    System.out.println(red +"REALLY?\uD83E\uDD28" + reset);
+                    System.out.println(Colors.RED +"REALLY?\uD83E\uDD28" + Colors.RESET);
                 }
-                System.out.println(red + "\uD83E\uDD37\u200D\uFE0FInvalid Input\uD83D\uDC94" + reset);
+                System.out.println(Colors.RED + "\uD83E\uDD37\u200D\uFE0FInvalid Input\uD83D\uDC94" + Colors.RESET);
                 fails++;
             }
         }
@@ -128,23 +128,16 @@ public class View {
 
     private void exec(List<String> list){
         int cnt = 1;
-
-        String blue = "\u001B[34m";
-        String reset = "\u001B[0m";
-        String white = "\u001B[37m";
-        String whiteV2 = "\u001B[97m";
-        String red = "\u001B[31m";
-
         for(String s : list){
-            System.out.println(blue + "~~~~~~~~~~~~~~~~" + reset + whiteV2 + cnt +reset + blue + "~~~~~~~~~~~~~~~~" + reset);
-            System.out.println(white + "----------" + reset);
+            System.out.println(Colors.BLUE + "~~~~~~~~~~~~~~~~" + Colors.RESET + Colors.BRIGHT_WHITE + cnt + Colors.RESET + Colors.BLUE + "~~~~~~~~~~~~~~~~" + Colors.RESET);
+            System.out.println(Colors.WHITE + "----------" + Colors.RESET);
             System.out.println(s);
-            System.out.println(white + "----------" + reset);
+            System.out.println(Colors.WHITE + "----------" + Colors.RESET);
             System.out.println();
             cnt += 1;
         }
 
-        System.out.println(red + "~~~~~~~~~~~~~~THE END\uD83D\uDC4C\uD83C\uDFFB~~~~~~~~~~~~~~" + reset);
+        System.out.println(Colors.RED + "~~~~~~~~~~~~~~THE END\uD83D\uDC4C\uD83C\uDFFB~~~~~~~~~~~~~~" + Colors.RESET);
         System.out.println();
     }
 }
