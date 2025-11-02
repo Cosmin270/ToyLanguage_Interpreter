@@ -20,6 +20,9 @@ public class MyMap<K, V> implements MyIMap<K, V>, Iterable<Map.Entry<K, V>>{
     public Iterator<Map.Entry<K, V>> iterator() {
         return map.entrySet().iterator();
     }
-
+    @Override
+    public void clear() {
+        map.clear();
+    }
 
 }

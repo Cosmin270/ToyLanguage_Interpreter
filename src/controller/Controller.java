@@ -1,12 +1,9 @@
 package controller;
 
 import model.exception.ControllerException;
-import model.exception.MyException;
-import model.stack.MyIStack;
-import model.stack.MyStack;
-import model.state.ExecutionStack;
+import model.state.IExecutionStack;
 import model.state.ProgramState;
-import model.statement.Statement;
+import model.statement.IStatement;
 import repository.IRepository;
 import repository.Repository;
 
@@ -35,11 +32,11 @@ public class Controller {
     }
 
     public ProgramState oneStep(ProgramState state) throws ControllerException {
-        ExecutionStack stack = state.getExecutionStack();
+        IExecutionStack stack = state.getExecutionStack();
         if(stack.isEmpty()) {
             throw new ControllerException("Execution stack is empty");
         }
-        Statement statement = (Statement) stack.pop();
+        IStatement statement = (IStatement) stack.pop();
         return statement.execute(state);
 
     }
@@ -53,8 +50,15 @@ public class Controller {
             if(this.displayFlag)
                 list.add(programState.toString());
         }
-        this.repository.deleteFirst();
+        //this.repository.deleteFirst(); //??
+        increment();
         return list;
     }
 
+    public void reset(){
+        this.repository.deleteFirst();
+    }
+    public void increment(){
+        this.repository.increment();
+    }
 }

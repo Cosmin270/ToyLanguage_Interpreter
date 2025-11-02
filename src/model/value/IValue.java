@@ -2,7 +2,7 @@ package model.value;
 
 import model.type.*;
 
-public interface Value {
-    Type getType();
+public interface IValue {
+    IType getType();
     String toString();
 }

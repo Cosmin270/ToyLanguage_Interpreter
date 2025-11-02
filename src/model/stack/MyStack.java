@@ -23,4 +23,8 @@ public class MyStack<T> implements MyIStack<T>, Iterable<T>{
     public Iterator<T> iterator() {
         return stack.iterator();
     }
+    @Override
+    public void  clear() {
+        stack.clear();
+    }
 }

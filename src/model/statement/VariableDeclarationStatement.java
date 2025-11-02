@@ -1,15 +1,14 @@
 package model.statement;
 
-import model.exception.MyException;
 import model.exception.StatementException;
 import model.state.ProgramState;
-import model.type.Type;
+import model.type.IType;
 
-public class VariableDeclarationStatement implements Statement {
+public class VariableDeclarationStatement implements IStatement {
     private String variableName;
-    private Type type;
+    private IType type;
 
-    public VariableDeclarationStatement(String variableName, Type type) {
+    public VariableDeclarationStatement(String variableName, IType type) {
         this.variableName = variableName;
         this.type = type;
     }
@@ -30,7 +29,7 @@ public class VariableDeclarationStatement implements Statement {
     }
 
     @Override
-    public Statement deepCopy() {
+    public IStatement deepCopy() {
         return new VariableDeclarationStatement(this.variableName, this.type);
     }
 }

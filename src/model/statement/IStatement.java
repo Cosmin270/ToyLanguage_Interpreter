@@ -2,8 +2,8 @@ package model.statement;
 
 import model.state.ProgramState;
 
-public interface Statement  {
+public interface IStatement {
     ProgramState execute(ProgramState state);
-    Statement deepCopy();
+    IStatement deepCopy();
     String toString();
 }

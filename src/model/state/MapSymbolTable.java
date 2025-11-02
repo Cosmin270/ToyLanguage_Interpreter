@@ -7,9 +7,9 @@ import model.value.*;
 import java.util.Map;
 
 
-public class MapSymbolTable implements SymbolTable {
+public class MapSymbolTable implements ISymbolTable {
 
-    private final MyMap<String, Value> map = new MyMap<>();
+    private final MyMap<String, IValue> map = new MyMap<>();
 
     @Override
     public boolean isDefined(String variableName){
@@ -17,31 +17,35 @@ public class MapSymbolTable implements SymbolTable {
     }
 
     @Override
-    public Type getType(String variableName){
+    public IType getType(String variableName){
         return map.get(variableName).getType();
     }
 
     @Override
-    public Value getValue(String variableName){
+    public IValue getValue(String variableName){
         return map.get(variableName);
     }
 
     @Override
-    public void declareVariable(String variableName, Type type){
+    public void declareVariable(String variableName, IType type){
         map.put(variableName, type.getDefaultValue());
     }
 
     @Override
-    public void update(String variableName, Value value){
+    public void update(String variableName, IValue value){
         map.put(variableName, value);
     }
 
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        for(Map.Entry<String, Value> entry: map){
+        for(Map.Entry<String, IValue> entry: map){
             sb.append(entry.getKey()).append(" -> ").append(entry.getValue()).append("; ");
         }
         return sb.toString();
+    }
+    @Override
+    public void clear(){
+        map.clear();
     }
 }

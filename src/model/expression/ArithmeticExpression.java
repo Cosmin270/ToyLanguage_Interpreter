@@ -1,15 +1,14 @@
 package model.expression;
 
-import model.exception.ExpressionsEvaluation;
-import model.exception.MyException;
-import model.state.SymbolTable;
+import model.exception.ExpressionsException;
+import model.state.ISymbolTable;
 import model.value.*;
 import model.type.*;
 
-public record ArithmeticExpression(String operator, Expression left, Expression right) implements Expression {
+public record ArithmeticExpression(String operator, IExpression left, IExpression right) implements IExpression {
 
     @Override
-    public Value evaluate(SymbolTable symbolTable) throws ExpressionsEvaluation {
+    public IValue evaluate(ISymbolTable symbolTable) throws ExpressionsException {
         var leftValue = (IntegerValue) left.evaluate(symbolTable);
         var rightValue = (IntegerValue) right.evaluate(symbolTable);
 
@@ -21,17 +20,17 @@ public record ArithmeticExpression(String operator, Expression left, Expression 
             case "*" -> new IntegerValue(leftValue.value() * rightValue.value());
             case "/" -> {
                 if (rightValue.value() == 0)
-                    throw new ExpressionsEvaluation("Division by zero");
+                    throw new ExpressionsException("Division by zero");
                 yield new IntegerValue(leftValue.value() / rightValue.value());
             }
-            default -> throw new ExpressionsEvaluation("Arithmetic operator -> \"" + this.operator + "\" is not recognized");
+            default -> throw new ExpressionsException("Arithmetic operator -> \"" + this.operator + "\" is not recognized");
         };
 
     }
 
-    private void checktype(Value left, Value right, Type type) {
+    private void checktype(IValue left, IValue right, IType type) {
         if (!left.getType().equals(type) || !right.getType().equals(type)) {
-            throw new ExpressionsEvaluation("Arithmetic operators are not compatible");
+            throw new ExpressionsException("Arithmetic operators are not compatible");
         }
     }
 

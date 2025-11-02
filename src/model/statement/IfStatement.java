@@ -1,20 +1,19 @@
 package model.statement;
 
-import model.exception.MyException;
 import model.exception.StatementException;
-import model.expression.Expression;
+import model.expression.IExpression;
 import model.state.ProgramState;
 import model.type.BooleanType;
 import model.value.BooleanValue;
-import model.value.Value;
+import model.value.IValue;
 
-public class IfStatement implements Statement {
+public class IfStatement implements IStatement {
 
-    Expression expression;
-    Statement thenStatement;
-    Statement elseStatement;
+    IExpression expression;
+    IStatement thenStatement;
+    IStatement elseStatement;
 
-    public IfStatement(Expression expression, Statement thenStatement, Statement elseStatement) {
+    public IfStatement(IExpression expression, IStatement thenStatement, IStatement elseStatement) {
         this.expression = expression;
         this.thenStatement = thenStatement;
         this.elseStatement = elseStatement;
@@ -27,7 +26,7 @@ public class IfStatement implements Statement {
 
     @Override
     public ProgramState execute(ProgramState state) {
-        Value value = expression.evaluate(state.getSymbolTable());
+        IValue value = expression.evaluate(state.getSymbolTable());
         if(!value.getType().equals(new BooleanType())) {
             throw new StatementException("IfStatement only accepts boolean");
         }
@@ -45,7 +44,7 @@ public class IfStatement implements Statement {
     }
 
     @Override
-    public Statement deepCopy() {
+    public IStatement deepCopy() {
         return new IfStatement(this.expression, this.thenStatement, this.elseStatement);
     }
 

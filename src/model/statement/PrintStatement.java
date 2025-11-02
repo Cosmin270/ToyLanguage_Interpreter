@@ -1,10 +1,10 @@
 package model.statement;
 
-import model.expression.Expression;
+import model.expression.IExpression;
 import model.state.ProgramState;
-import model.value.Value;
+import model.value.IValue;
 
-public record PrintStatement(Expression expression) implements Statement {
+public record PrintStatement(IExpression expression) implements IStatement {
 
     public String toString(){
         return "print(" + expression.toString() + ")";
@@ -12,12 +12,12 @@ public record PrintStatement(Expression expression) implements Statement {
 
     @Override
     public ProgramState execute(ProgramState state) {
-        Value expressionValue = this.expression.evaluate(state.getSymbolTable());
+        IValue expressionValue = this.expression.evaluate(state.getSymbolTable());
         state.getOut().add(expressionValue);
         return state;
     }
     @Override
-    public Statement deepCopy() {
+    public IStatement deepCopy() {
         return new PrintStatement(this.expression);
     }
 }

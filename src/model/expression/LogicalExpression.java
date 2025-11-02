@@ -1,16 +1,16 @@
 package model.expression;
 
-import model.exception.ExpressionsEvaluation;
+import model.exception.ExpressionsException;
 import model.exception.MyException;
-import model.state.SymbolTable;
+import model.state.ISymbolTable;
 import model.type.*;
 import model.value.*;
 
 
-public record LogicalExpression(String operator, Expression left, Expression right) implements Expression {
+public record LogicalExpression(String operator, IExpression left, IExpression right) implements IExpression {
 
     @Override
-    public Value evaluate(SymbolTable symbolTable) throws MyException {
+    public IValue evaluate(ISymbolTable symbolTable) throws MyException {
         var leftValue = (BooleanValue) left.evaluate(symbolTable);
         var rightValue = (BooleanValue) right.evaluate(symbolTable);
 
@@ -19,13 +19,13 @@ public record LogicalExpression(String operator, Expression left, Expression rig
         return switch (operator) {
             case "&" -> new BooleanValue(leftValue.value() && rightValue.value());
             case "|" -> new BooleanValue(leftValue.value() || rightValue.value());
-            default -> throw new ExpressionsEvaluation("Unknown operator: " + operator);
+            default -> throw new ExpressionsException("Unknown operator: " + operator);
         };
     }
 
-    private void checkType(Value left, Value right, Type type) {
+    private void checkType(IValue left, IValue right, IType type) {
         if (!left.getType().equals(type) || !right.getType().equals(type)) {
-            throw new ExpressionsEvaluation("Invalid type");
+            throw new ExpressionsException("Invalid type");
         }
     }
     @Override

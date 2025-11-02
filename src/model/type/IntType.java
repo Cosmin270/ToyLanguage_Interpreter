@@ -3,7 +3,7 @@ package model.type;
 
 import model.value.*;
 
-public class IntType implements Type {
+public class IntType implements IType {
 
     private final int value;
 
@@ -14,10 +14,10 @@ public class IntType implements Type {
     public int getValue() {return value;}
 
     @Override
-    public Value getDefaultValue() {return new IntegerValue(0);}
+    public IValue getDefaultValue() {return new IntegerValue(0);}
 
     @Override
-    public Type deepCopy() {return new IntType();}
+    public IType deepCopy() {return new IntType();}
 
     @Override
     public String toString(){return "int";}

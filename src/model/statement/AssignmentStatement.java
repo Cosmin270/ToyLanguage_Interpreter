@@ -1,20 +1,20 @@
 package model.statement;
 
 import model.exception.StatementException;
-import model.expression.Expression;
+import model.expression.IExpression;
 import model.state.ProgramState;
-import model.state.SymbolTable;
-import model.value.Value;
+import model.state.ISymbolTable;
+import model.value.IValue;
 
-public record AssignmentStatement(String variableName, Expression expression) implements Statement {
+public record AssignmentStatement(String variableName, IExpression expression) implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state){
-            SymbolTable symbolTable = state.getSymbolTable();
+            ISymbolTable symbolTable = state.getSymbolTable();
             if(!symbolTable.isDefined(this.variableName)){
                 throw new StatementException("Variable " + this.variableName + " is not defined");
             }
-            Value value = expression.evaluate(symbolTable);
+            IValue value = expression.evaluate(symbolTable);
             if(!value.getType().equals(symbolTable.getType(this.variableName))){
                 throw new StatementException("Type mismatch");
             }
@@ -22,7 +22,7 @@ public record AssignmentStatement(String variableName, Expression expression) im
             return null;
     }
     @Override
-    public Statement deepCopy() {
+    public IStatement deepCopy() {
         return new AssignmentStatement(this.variableName, this.expression);
     }
 

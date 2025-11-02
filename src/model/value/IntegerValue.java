@@ -1,9 +1,9 @@
 package model.value;
 
 import model.type.*;
-public record IntegerValue(int value) implements Value {
+public record IntegerValue(int value) implements IValue {
     @Override
-    public Type getType(){return new IntType();}
+    public IType getType(){return new IntType();}
     public int getValue(){return value;}
 
     @Override

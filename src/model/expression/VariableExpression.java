@@ -1,16 +1,16 @@
 package model.expression;
 
-import model.exception.ExpressionsEvaluation;
+import model.exception.ExpressionsException;
 import model.exception.MyException;
 import model.value.*;
-import model.state.SymbolTable;
+import model.state.ISymbolTable;
 
-public record VariableExpression(String variableName) implements Expression {
+public record VariableExpression(String variableName) implements IExpression {
 
     @Override
-    public Value evaluate(SymbolTable symbolTable) throws MyException {
+    public IValue evaluate(ISymbolTable symbolTable) throws MyException {
         if(!symbolTable.isDefined(variableName)){
-            throw new ExpressionsEvaluation("Variable \"" +this.variableName + "\" is not defined");
+            throw new ExpressionsException("Variable \"" +this.variableName + "\" is not defined");
         }
         return symbolTable.getValue(variableName);
     }

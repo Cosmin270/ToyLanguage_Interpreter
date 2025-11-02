@@ -1,12 +1,12 @@
 package model.expression;
 
-import model.state.SymbolTable;
-import model.value.Value;
+import model.state.ISymbolTable;
+import model.value.IValue;
 
-public record ValueExpression(Value value) implements Expression{
+public record ValueExpression(IValue value) implements IExpression {
 
     @Override
-    public Value evaluate(SymbolTable symbolTable) {return value;}
+    public IValue evaluate(ISymbolTable symbolTable) {return value;}
 
     @Override
     public String toString(){

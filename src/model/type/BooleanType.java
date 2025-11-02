@@ -1,9 +1,9 @@
 package model.type;
 
 import model.value.BooleanValue;
-import model.value.Value;
+import model.value.IValue;
 
-public class BooleanType implements Type {
+public class BooleanType implements IType {
 
     private final boolean value;
 
@@ -17,10 +17,10 @@ public class BooleanType implements Type {
 
 
     @Override
-    public Value getDefaultValue() {return new BooleanValue(false);}
+    public IValue getDefaultValue() {return new BooleanValue(false);}
 
     @Override
-    public Type deepCopy() {return new BooleanType(value);}
+    public IType deepCopy() {return new BooleanType(value);}
 
     @Override
     public String toString(){return "boolean";}

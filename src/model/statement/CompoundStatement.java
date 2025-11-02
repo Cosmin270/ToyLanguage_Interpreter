@@ -2,7 +2,7 @@ package model.statement;
 
 import model.state.ProgramState;
 
-public record CompoundStatement(Statement first, Statement second) implements Statement {
+public record CompoundStatement(IStatement first, IStatement second) implements IStatement {
 
     public String toString(){
         return "("+first.toString()+","+second.toString()+")";
@@ -16,5 +16,5 @@ public record CompoundStatement(Statement first, Statement second) implements St
     }
 
     @Override
-    public Statement deepCopy() {return new CompoundStatement(this.first.deepCopy(), this.second.deepCopy());}
+    public IStatement deepCopy() {return new CompoundStatement(this.first.deepCopy(), this.second.deepCopy());}
 }

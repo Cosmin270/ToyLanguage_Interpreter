@@ -1,23 +1,23 @@
 package model.state;
 
-import model.statement.Statement;
+import model.statement.IStatement;
 import view.Colors;
 
 
 public class ProgramState{
-    private final ExecutionStack executionStack;
-    private final SymbolTable symbolTable;
+    private final IExecutionStack executionStack;
+    private final ISymbolTable symbolTable;
     private final ListOut out;
-    private final Statement originalProgram;
+    private final IStatement originalProgram;
 
-    public ProgramState(ExecutionStack executionStack, SymbolTable symbolTable, ListOut out, Statement originalProgram){
+    public ProgramState(IExecutionStack executionStack, ISymbolTable symbolTable, ListOut out, IStatement originalProgram){
         this.executionStack = executionStack;
         this.symbolTable = symbolTable;
         this.out = out;
         this.originalProgram = originalProgram;
         this.executionStack.push(originalProgram);
     }
-    public ProgramState(Statement originalProgram){
+    public ProgramState(IStatement originalProgram){
         this.executionStack = new StackExecutionStack();
         this.symbolTable = new MapSymbolTable();
         this.out = new ListOut();
@@ -25,10 +25,10 @@ public class ProgramState{
         this.executionStack.push(originalProgram);
     }
 
-    public ExecutionStack getExecutionStack() {return this.executionStack;}
-    public SymbolTable getSymbolTable() {return this.symbolTable;}
+    public IExecutionStack getExecutionStack() {return this.executionStack;}
+    public ISymbolTable getSymbolTable() {return this.symbolTable;}
     public ListOut getOut() {return this.out;}
-    public Statement getOriginalProgram() {return this.originalProgram;}
+    public IStatement getOriginalProgram() {return this.originalProgram;}
 
     @Override
     public String toString(){
