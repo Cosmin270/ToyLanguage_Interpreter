@@ -36,6 +36,8 @@ public class MapSymbolTable implements ISymbolTable {
         map.put(variableName, value);
     }
 
+    public MyMap<String, IValue> getContent() { return this.map;}
+
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();

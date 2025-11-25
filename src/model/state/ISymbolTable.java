@@ -1,5 +1,6 @@
 package model.state;
 
+import model.map.MyMap;
 import model.type.*;
 import model.value.*;
 
@@ -11,4 +12,5 @@ public interface ISymbolTable {
     IValue getValue(String variableName);
     String toString();
     void clear();
+    MyMap<String, IValue> getContent();
 }

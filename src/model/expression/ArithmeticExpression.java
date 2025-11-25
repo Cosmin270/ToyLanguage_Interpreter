@@ -1,6 +1,7 @@
 package model.expression;
 
 import model.exception.ExpressionsException;
+import model.state.IHeapTable;
 import model.state.ISymbolTable;
 import model.value.*;
 import model.type.*;
@@ -8,9 +9,9 @@ import model.type.*;
 public record ArithmeticExpression(String operator, IExpression left, IExpression right) implements IExpression {
 
     @Override
-    public IValue evaluate(ISymbolTable symbolTable) throws ExpressionsException {
-        var leftValue = (IntegerValue) left.evaluate(symbolTable);
-        var rightValue = (IntegerValue) right.evaluate(symbolTable);
+    public IValue evaluate(ISymbolTable symbolTable, IHeapTable heapTable) throws ExpressionsException {
+        var leftValue = (IntegerValue) left.evaluate(symbolTable, heapTable);
+        var rightValue = (IntegerValue) right.evaluate(symbolTable, heapTable);
 
         checktype(leftValue, rightValue, new IntType());
 

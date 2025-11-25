@@ -1,0 +1,188 @@
+Execution Stack: 
+(int v,(v = 2,print(v))); 
+Symbol Table: 
+
+Out: 
+
+FileTable: 
+
+Execution Stack: 
+(v = 2,print(v)); int v; 
+Symbol Table: 
+
+Out: 
+
+FileTable: 
+
+Execution Stack: 
+(v = 2,print(v)); 
+Symbol Table: 
+v -> 0; 
+Out: 
+
+FileTable: 
+
+Execution Stack: 
+print(v); v = 2; 
+Symbol Table: 
+v -> 0; 
+Out: 
+
+FileTable: 
+
+Execution Stack: 
+print(v); 
+Symbol Table: 
+v -> 2; 
+Out: 
+
+FileTable: 
+
+Execution Stack: 
+
+Symbol Table: 
+v -> 2; 
+Out: 
+2; 
+FileTable: 
+
+Execution Stack: 
+
+Symbol Table: 
+v -> 2; 
+Out: 
+2; 
+FileTable: 
+
+Execution Stack: 
+(int v,(v = 2,print(v))); 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+(v = 2,print(v)); int v; 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+(v = 2,print(v)); 
+
+Symbol Table: 
+v -> 0; 
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+print(v); v = 2; 
+
+Symbol Table: 
+v -> 0; 
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+print(v); 
+
+Symbol Table: 
+v -> 2; 
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+
+
+Symbol Table: 
+v -> 2; 
+
+Out: 
+2; 
+
+FileTable: 
+
+Execution Stack: 
+(int v,(v = 2,print(v))); 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+(v = 2,print(v)); int v; 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+(v = 2,print(v)); 
+
+Symbol Table: 
+v -> 0; 
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+print(v); v = 2; 
+
+Symbol Table: 
+v -> 0; 
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+print(v); 
+
+Symbol Table: 
+v -> 2; 
+
+Out: 
+
+
+FileTable: 
+
+Execution Stack: 
+
+
+Symbol Table: 
+v -> 2; 
+
+Out: 
+2; 
+
+FileTable: 
+

@@ -1,0 +1,36 @@
+package model.value;
+
+import model.type.IType;
+import model.type.RefType;
+import model.value.IValue;
+
+public class RefValue implements IValue {
+        private final int address;
+        private final IType locationType;
+
+        public RefValue(int address, IType locationType) {
+            this.address = address;
+            this.locationType = locationType;
+        }
+
+        public int getAddress() {
+            return address;
+        }
+        public IType getLocationType() {
+            return locationType;
+        }
+
+        @Override
+        public IType getType() {
+            return new RefType(locationType);
+        }
+        @Override
+        public String toString() {
+            return "RefValue(" + address + ", " + locationType.toString() + ")";
+        }
+        @Override
+        public IValue deepCopy() {
+            return new RefValue(address, locationType);
+        }
+
+}

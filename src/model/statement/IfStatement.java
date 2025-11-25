@@ -26,7 +26,7 @@ public class IfStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) {
-        IValue value = expression.evaluate(state.getSymbolTable());
+        IValue value = expression.evaluate(state.getSymbolTable(), state.getHeapTable());
         if(!value.getType().equals(new BooleanType())) {
             throw new StatementException("IfStatement only accepts boolean");
         }
@@ -45,7 +45,7 @@ public class IfStatement implements IStatement {
 
     @Override
     public IStatement deepCopy() {
-        return new IfStatement(this.expression, this.thenStatement, this.elseStatement);
+        return new IfStatement(this.expression, this.thenStatement.deepCopy(), this.elseStatement.deepCopy());
     }
 
 }

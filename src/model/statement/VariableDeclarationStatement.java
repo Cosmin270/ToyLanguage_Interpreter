@@ -5,8 +5,8 @@ import model.state.ProgramState;
 import model.type.IType;
 
 public class VariableDeclarationStatement implements IStatement {
-    private String variableName;
-    private IType type;
+    private final String variableName;
+    private final IType type;
 
     public VariableDeclarationStatement(String variableName, IType type) {
         this.variableName = variableName;
@@ -30,6 +30,6 @@ public class VariableDeclarationStatement implements IStatement {
 
     @Override
     public IStatement deepCopy() {
-        return new VariableDeclarationStatement(this.variableName, this.type);
+        return new VariableDeclarationStatement(this.variableName, this.type.deepCopy());
     }
 }

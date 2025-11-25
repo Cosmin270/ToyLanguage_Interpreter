@@ -2,6 +2,7 @@ package model.expression;
 
 import model.exception.ExpressionsException;
 import model.exception.MyException;
+import model.state.IHeapTable;
 import model.state.ISymbolTable;
 import model.type.*;
 import model.value.*;
@@ -10,9 +11,9 @@ import model.value.*;
 public record LogicalExpression(String operator, IExpression left, IExpression right) implements IExpression {
 
     @Override
-    public IValue evaluate(ISymbolTable symbolTable) throws MyException {
-        var leftValue = (BooleanValue) left.evaluate(symbolTable);
-        var rightValue = (BooleanValue) right.evaluate(symbolTable);
+    public IValue evaluate(ISymbolTable symbolTable, IHeapTable heapTable) throws MyException {
+        var leftValue = (BooleanValue) left.evaluate(symbolTable, heapTable);
+        var rightValue = (BooleanValue) right.evaluate(symbolTable, heapTable);
 
         checkType(leftValue, rightValue, new BooleanType());
 
