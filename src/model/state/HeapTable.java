@@ -1,13 +1,8 @@
 package model.state;
 
-import model.expression.IExpression;
-import model.map.MyMap;
-import model.type.IType;
-import model.value.IValue;
-import model.value.StringValue;
-
-import java.io.BufferedReader;
 import java.util.Map;
+import model.map.MyMap;
+import model.value.IValue;
 
 public class HeapTable implements IHeapTable {
     private final MyMap<Integer, IValue> heap;
@@ -57,5 +52,9 @@ public class HeapTable implements IHeapTable {
     public void setContent(MyMap<Integer, IValue> heap) {
         this.heap.clear();
         this.heap.putAll(heap);
+    }
+    @Override
+    public MyMap<Integer, IValue> getContent() {
+        return this.heap;
     }
 }

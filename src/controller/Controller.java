@@ -19,7 +19,7 @@ import repository.IRepository;
 import repository.Repository;
 
 public class Controller {
-    private IRepository repository;
+    private final IRepository repository;
     private boolean displayFlag;
     private ExecutorService executor;
 
@@ -47,11 +47,6 @@ public class Controller {
     public void addProgram(ProgramState state) {
         this.repository.addProgram(state);
     }
-
-
-    // public String getFinalOutput(){
-    //     return Colors.CYAN +"Final output: { " + Colors.RESET + Colors.BRIGHT_WHITE + this.getRepository().getCrtProgram().getOut().toString() +Colors.RESET + Colors.CYAN + "}" + Colors.RESET;
-    // }
 
     public MyList<ProgramState> removeCompletedPrg(MyList<ProgramState> prgList){
         return prgList.stream().filter(ProgramState::isNotComplete).collect(Collectors.toCollection(MyList::new));
@@ -121,6 +116,7 @@ public class Controller {
 
         while(!prgList.isEmpty()){
             try{
+                this.conservativeGarbageCollector(prgList);
                 programStates.addAll(this.oneStepForAllPrg(prgList));
                 prgList = this.removeCompletedPrg(this.repository.getPrgList());
             }
@@ -174,6 +170,14 @@ public class Controller {
 
         return newHeap;
     }
+    private void conservativeGarbageCollector(List<ProgramState> prgList) {
+        MyMap<Integer, IValue> heapContent = prgList.get(0).getHeapTable().getContent();
+        List<IValue> symbolTableValues = prgList.stream().flatMap(prg -> prg.getSymbolTable().getContent().values().stream()).collect(Collectors.toList());
+        List<Integer> symbolTableAddresses = this.getAddressesFromSymbolTable(symbolTableValues);
+        List<Integer> allReferencedAddresses = this.addIndirectAddresses(symbolTableAddresses, heapContent);
+        prgList.get(0).getHeapTable().setContent(this.garbageCollector(allReferencedAddresses, heapContent)); 
+    }
+    
 
     public void reset(){
         this.repository.reset();

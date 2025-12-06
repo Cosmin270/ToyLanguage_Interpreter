@@ -1,0 +1,418 @@
+--------------------
+ID: 8
+
+Execution Stack: 
+(Ref(int) v,(NEW(v;20),(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)))))); 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(v;20),(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))))); Ref(int) v; 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(v;20),(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))))); Ref(int) v; 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(v;20),(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))))); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(v;20),(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))))); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)))); NEW(v;20); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)))); NEW(v;20); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)))); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(Ref(Ref(int)) a,(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)))); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))); Ref(Ref(int)) a; 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))); Ref(Ref(int)) a; 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))); 
+
+Symbol Table: 
+a -> RefValue(0, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(NEW(a;v),(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5))); 
+
+Symbol Table: 
+a -> RefValue(0, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)); NEW(a;v); 
+
+Symbol Table: 
+a -> RefValue(0, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)); NEW(a;v); 
+
+Symbol Table: 
+a -> RefValue(0, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)); 
+
+Symbol Table: 
+a -> RefValue(2, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 2 -> RefValue(1, int); 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+(print(Heap Reading: v),print(Heap Reading: Heap Reading: a + 5)); 
+
+Symbol Table: 
+a -> RefValue(2, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 2 -> RefValue(1, int); 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+print(Heap Reading: Heap Reading: a + 5); print(Heap Reading: v); 
+
+Symbol Table: 
+a -> RefValue(2, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 2 -> RefValue(1, int); 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+print(Heap Reading: Heap Reading: a + 5); print(Heap Reading: v); 
+
+Symbol Table: 
+a -> RefValue(2, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 2 -> RefValue(1, int); 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+print(Heap Reading: Heap Reading: a + 5); 
+
+Symbol Table: 
+a -> RefValue(2, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 2 -> RefValue(1, int); 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+print(Heap Reading: Heap Reading: a + 5); 
+
+Symbol Table: 
+a -> RefValue(2, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 2 -> RefValue(1, int); 
+--------------------
+
+--------------------
+ID: 8
+
+Execution Stack: 
+
+
+Symbol Table: 
+a -> RefValue(2, Ref(int)); v -> RefValue(1, int); 
+
+Out: 
+20; 25; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 2 -> RefValue(1, int); 
+--------------------
+

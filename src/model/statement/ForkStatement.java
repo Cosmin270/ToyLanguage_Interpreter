@@ -1,13 +1,10 @@
 package model.statement;
 
 
+import java.util.stream.Collectors;
 import model.map.MyMap;
-import model.stack.MyStack;
 import model.state.*;
 import model.value.IValue;
-
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class ForkStatement implements IStatement {
     private IStatement statement;
