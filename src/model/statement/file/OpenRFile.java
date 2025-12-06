@@ -48,7 +48,7 @@ public class OpenRFile implements IStatement {
         else{
             throw new StatementException("Invalid expression");
         }
-        return state;
+        return null;
     }
 
 }

@@ -50,4 +50,9 @@ public class MapSymbolTable implements ISymbolTable {
     public void clear(){
         map.clear();
     }
+
+    @Override
+    public void setContent(MyMap<String, IValue> content) {
+        this.map.setContent(content);
+    }
 }

@@ -14,7 +14,7 @@ public record PrintStatement(IExpression expression) implements IStatement {
     public ProgramState execute(ProgramState state) {
         IValue expressionValue = this.expression.evaluate(state.getSymbolTable(), state.getHeapTable());
         state.getOut().add(expressionValue);
-        return state;
+        return null;
     }
     @Override
     public IStatement deepCopy() {

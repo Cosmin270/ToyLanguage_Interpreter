@@ -1,3 +1,10 @@
+/// Problem found:
+/// after fork make it show the final phase of each program states
+
+
+
+
+
 package view;
 
 import controller.Controller;
@@ -21,34 +28,35 @@ import repository.IRepository;
 import repository.Repository;
 
 public class Interpreter {
-    public  static void main(String[] args) {
+        public  static void main(String[] args) {
 
-        Pair<String, Controller> ex1 = exemple1();
-        Pair<String, Controller> ex2 = exemple2();
-        Pair<String, Controller> ex3 = exemple3();
-        Pair<String, Controller> ex4 = exemple4();
-        Pair<String, Controller> ex5 = exemple5();
-        Pair<String, Controller> ex6 = exemple6();
-        Pair<String, Controller> ex7 = exemple7();
-        Pair<String, Controller> ex8 = exemple8();
-        Pair<String, Controller> ex9 = exemple9();
+                Pair<String, Controller> ex1 = exemple1();
+                Pair<String, Controller> ex2 = exemple2();
+                Pair<String, Controller> ex3 = exemple3();
+                Pair<String, Controller> ex4 = exemple4();
+                Pair<String, Controller> ex5 = exemple5();
+                Pair<String, Controller> ex6 = exemple6();
+                Pair<String, Controller> ex7 = exemple7();
+                Pair<String, Controller> ex8 = exemple8();
+                Pair<String, Controller> ex9 = exemple9();
+                Pair<String, Controller> ex10 = exemple10();
 
+                TextMenu menu = new TextMenu();
+                menu.addCommand(new ExitCommand("0", "Exit"));
+                menu.addCommand(new RunExemple("1", ex1.first(), ex1.second()));
+                menu.addCommand(new RunExemple("2", ex2.first(), ex2.second()));
+                menu.addCommand(new RunExemple("3", ex3.first(), ex3.second()));
+                menu.addCommand(new RunExemple("4", ex4.first(), ex4.second()));
+                menu.addCommand(new RunExemple("5", ex5.first(), ex5.second()));
+                menu.addCommand(new RunExemple("6", ex6.first(), ex6.second()));
+                menu.addCommand(new RunExemple("7", ex7.first(), ex7.second()));
+                menu.addCommand(new RunExemple("8", ex8.first(), ex8.second()));
+                menu.addCommand(new RunExemple("9", ex9.first(), ex9.second()));
+                menu.addCommand(new RunExemple("10", ex10.first(), ex10.second()));
+                menu.show();
+        }
 
-        TextMenu menu = new TextMenu();
-        menu.addCommand(new ExitCommand("0", "Exit"));
-        menu.addCommand(new RunExemple("1", ex1.first(), ex1.second()));
-        menu.addCommand(new RunExemple("2", ex2.first(), ex2.second()));
-        menu.addCommand(new RunExemple("3", ex3.first(), ex3.second()));
-        menu.addCommand(new RunExemple("4", ex4.first(), ex4.second()));
-        menu.addCommand(new RunExemple("5", ex5.first(), ex5.second()));
-        menu.addCommand(new RunExemple("6", ex6.first(), ex6.second()));
-        menu.addCommand(new RunExemple("7", ex7.first(), ex7.second()));
-        menu.addCommand(new RunExemple("8", ex8.first(), ex8.second()));
-        menu.addCommand(new RunExemple("9", ex9.first(), ex9.second()));
-        menu.show();
-    }
-
-    private static Pair<String, Controller> exemple1(){
+        private static Pair<String, Controller> exemple1(){
         IStatement s1 = new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
                 new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntegerValue(2))),
                         new PrintStatement(new VariableExpression("v"))));
@@ -57,9 +65,9 @@ public class Interpreter {
         IRepository repo1 = new Repository(state, "log1.txt");
         Controller controller1 = new Controller(repo1);
         String desc = "\n\t\tint v;\n\t\tv=2;\n\t\tPrint(v);\n";
-        return new Pair<String, Controller>(desc, controller1);
+        return new Pair<>(desc, controller1);
     }
-    private static Pair<String, Controller> exemple2(){
+        private static Pair<String, Controller> exemple2(){
         IStatement s2 = new CompoundStatement(new VariableDeclarationStatement("a", new IntType()),
                 new CompoundStatement(new VariableDeclarationStatement("b", new IntType()),
                         new CompoundStatement(new AssignmentStatement("a", new ArithmeticExpression("{", new ValueExpression(new IntegerValue(2)), new ArithmeticExpression("*", new ValueExpression(new IntegerValue(3)),
@@ -71,9 +79,9 @@ public class Interpreter {
 
         String desc = "\n\t\tint a;\n\t\tint b;\n\t\ta=2+3*5;\n\t\tb=a+1;\n\t\tPrint(b);\n";
 
-        return new Pair<String, Controller>(desc, controller2);
+        return new Pair<>(desc, controller2);
     }
-    private static Pair<String, Controller> exemple3(){
+        private static Pair<String, Controller> exemple3(){
         IStatement s3 = new CompoundStatement(new VariableDeclarationStatement("a", new BooleanType()),
                 new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
                         new CompoundStatement(new AssignmentStatement("a", new ValueExpression(new BooleanValue(true))),
@@ -85,10 +93,10 @@ public class Interpreter {
 
         String desc = "\n\t\tbool a;\n\t\tint v;\n\t\ta=true;\n\t\tIf a Then\n\t\t\t  v=2;\n\t\tElse\n\t\t\t  v=3;\n\t\tPrint(v);\n";
 
-        return new Pair<String, Controller>(desc, controller3);
+        return new Pair<>(desc, controller3);
 
     }
-    private static Pair<String, Controller> exemple4(){
+        private static Pair<String, Controller> exemple4(){
         IStatement ex4 = new CompoundStatement(new VariableDeclarationStatement("varf", new StringType()),
                 new CompoundStatement(new AssignmentStatement("varf", new ValueExpression(new StringValue("test.in"))),
                         new CompoundStatement(new OpenRFile(new VariableExpression("varf")),
@@ -120,9 +128,9 @@ public class Interpreter {
                 closeRFile(varf)
                 """;
 
-        return new Pair<String, Controller>(desc, controller4);
+        return new Pair<>(desc, controller4);
     }
-    private static Pair<String, Controller> exemple5(){
+        private static Pair<String, Controller> exemple5(){
         IStatement s5 = new CompoundStatement(new VariableDeclarationStatement("a", new IntType()),
                 new CompoundStatement(new AssignmentStatement("a", new ValueExpression(new IntegerValue(5))),
                         new IfStatement(new RelationalExpression("<", new VariableExpression("a"), new ValueExpression(new IntegerValue(10))), new PrintStatement(new ValueExpression(new StringValue("a<10"))), new PrintStatement(new ValueExpression(new StringValue("a>=10"))))));
@@ -138,9 +146,9 @@ public class Interpreter {
         \t\tElse
         \t\t\tPrint(a>=10);
         """;
-        return new Pair<String, Controller>(desc, controller5);
+        return new Pair<>(desc, controller5);
     }
-    private static Pair<String, Controller> exemple6(){
+        private static Pair<String, Controller> exemple6(){
         IStatement s6 = new CompoundStatement(new VariableDeclarationStatement("v", new RefType(new IntType())),
                     new CompoundStatement(new New("v", new ValueExpression(new IntegerValue(20))),
                             new CompoundStatement(new VariableDeclarationStatement("a", new RefType(new RefType(new IntType()))),
@@ -160,9 +168,9 @@ public class Interpreter {
                 \t\tNew(v, 30);
                 \t\tPrint(rH(rH(a));
                 """;
-        return new Pair<String, Controller>(desc, controller6);
+        return new Pair<>(desc, controller6);
     }
-    private static Pair<String, Controller> exemple7(){
+        private static Pair<String, Controller> exemple7(){
         IStatement s7 = new CompoundStatement(new VariableDeclarationStatement("v", new RefType(new IntType())),
                 new CompoundStatement(new New("v", new ValueExpression(new IntegerValue(20))),
                         new CompoundStatement(new PrintStatement(new HeapReadingExpression(new VariableExpression("v"))),
@@ -180,10 +188,10 @@ public class Interpreter {
                 \t\tprint(rH(v)+5);
            
                 """;
-        return new Pair<String, Controller>(desc, controller7);
+        return new Pair<>(desc, controller7);
 
     }
-    private static Pair<String, Controller> exemple8(){
+        private static Pair<String, Controller> exemple8(){
         IStatement s8 = new CompoundStatement(new VariableDeclarationStatement("v", new RefType(new IntType())),
                 new CompoundStatement(new New("v", new ValueExpression(new IntegerValue(20))),
                         new CompoundStatement(new VariableDeclarationStatement("a", new RefType(new RefType(new IntType()))),
@@ -204,26 +212,54 @@ public class Interpreter {
                 """;
         return new Pair<>(desc, controller8);
     }
-    private static Pair<String, Controller> exemple9(){
-        IStatement s9 = new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
-                new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntegerValue(4))),
-                        new CompoundStatement(new WhileStatement(new RelationalExpression(">", new VariableExpression("v"), new ValueExpression(new IntegerValue(0))),
-                                new CompoundStatement(new PrintStatement(new VariableExpression("v")),
-                                        new AssignmentStatement("v", new ArithmeticExpression( "-",new VariableExpression("v"), new ValueExpression(new IntegerValue(1)))))),
-                                new PrintStatement(new VariableExpression("v")))));
-        ProgramState state = new ProgramState(s9);
-        IRepository repo9 = new Repository(state, "log9.txt");
-        Controller controller9 = new Controller(repo9);
-        String desc = """
-                
-                \t\tint v;
-                \t\tv=4;
-                \t\twhile(v>0){
-                \t\t\tprint(v);
-                \t\t\tv=v-1;
-                \t\t}
-                \t\tprint(v);
-                """;
-        return new Pair<>(desc, controller9);
+        private static Pair<String, Controller> exemple9(){
+                IStatement s9 = new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
+                        new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntegerValue(4))),
+                                new CompoundStatement(new WhileStatement(new RelationalExpression(">", new VariableExpression("v"), new ValueExpression(new IntegerValue(0))),
+                                        new CompoundStatement(new PrintStatement(new VariableExpression("v")),
+                                                new AssignmentStatement("v", new ArithmeticExpression( "-",new VariableExpression("v"), new ValueExpression(new IntegerValue(1)))))),
+                                        new PrintStatement(new VariableExpression("v")))));
+                ProgramState state = new ProgramState(s9);
+                IRepository repo9 = new Repository(state, "log9.txt");
+                Controller controller9 = new Controller(repo9);
+                String desc = """
+                        
+                        \t\tint v;
+                        \t\tv=4;
+                        \t\twhile(v>0){
+                        \t\t\tprint(v);
+                        \t\t\tv=v-1;
+                        \t\t}
+                        \t\tprint(v);
+                        """;
+                return new Pair<>(desc, controller9);
     }
+        private static Pair<String, Controller> exemple10(){
+                IStatement ex10 = new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
+                        new CompoundStatement(new VariableDeclarationStatement("a", new RefType(new IntType())),
+                        new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntegerValue(10))),
+                        new CompoundStatement(new New("a", new ValueExpression(new IntegerValue(22))),
+                        new CompoundStatement(new ForkStatement(new CompoundStatement(new HeapWriting("a", new ValueExpression(new IntegerValue(30))),
+                                new CompoundStatement(new AssignmentStatement("v", new ValueExpression(new IntegerValue(32))),
+                                new CompoundStatement(new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression(new VariableExpression("a"))))))),
+                        new CompoundStatement(new PrintStatement(new VariableExpression("v")), new PrintStatement(new HeapReadingExpression(new VariableExpression("a")))))))));
+                
+                ProgramState state = new ProgramState(ex10);
+                IRepository repo10 = new Repository(state, "log10.txt");
+                Controller controller10 = new Controller(repo10);
+                String desc = """
+                        
+                        \t\tint v;
+                        \t\tRef int a;
+                        \t\tv=10;
+                        \t\tNew(a,22);
+                        \t\tfork( wH(a,30);
+                        \t\t      v=32;
+                        \t\t      print(v);
+                        \t\t      print(rH(a)) );
+                        \t\tprint(v);
+                        \t\tprint(rH(a));
+                        """;
+                return new Pair<>(desc, controller10);
+        }
 }

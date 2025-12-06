@@ -1,6 +1,5 @@
 package view;
 
-import model.exception.ExpressionsException;
 
 public abstract class Command {
     private String key;

@@ -24,7 +24,7 @@ public class VariableDeclarationStatement implements IStatement {
             throw new StatementException("Variable " + this.variableName + " is already defined");
         else
             programState.getSymbolTable().update(this.variableName, type.getDefaultValue());
-        return programState;
+        return null;
 
     }
 

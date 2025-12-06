@@ -1,9 +1,8 @@
 package view;
 
 import controller.Controller;
-import model.exception.*;
-
 import java.util.List;
+import model.exception.*;
 
 public class RunExemple extends Command {
     private final Controller controller;
@@ -34,7 +33,7 @@ public class RunExemple extends Command {
             cnt += 1;
         }
         //this.controller.getRepository().decrement();
-        System.out.println(this.controller.getFinalOutput());
+        //System.out.println(this.controller.getFinalOutput());
         //this.controller.getRepository().increment();
         System.out.println(Colors.RED + "~~~~~~~~~~~~~~THE END\uD83D\uDC4C\uD83C\uDFFB~~~~~~~~~~~~~~" + Colors.RESET);
         System.out.println();

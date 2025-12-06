@@ -12,7 +12,7 @@ public record CompoundStatement(IStatement first, IStatement second) implements 
     public ProgramState execute(ProgramState state){
         state.getExecutionStack().push(this.second);
         state.getExecutionStack().push(this.first);
-        return state;
+        return null;
     }
 
     @Override

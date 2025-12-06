@@ -39,7 +39,7 @@ public class CloseRFile implements IStatement {
             throw new StatementException(e.getMessage());
         }
         state.getFileTable().removeByKey(strVal);
-        return state;
+        return null;
     }
 
 }

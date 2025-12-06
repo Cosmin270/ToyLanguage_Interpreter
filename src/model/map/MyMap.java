@@ -1,5 +1,7 @@
 package model.map;
 
+import model.value.IValue;
+
 import java.util.*;
 
 public class MyMap<K, V> implements MyIMap<K, V>, Iterable<Map.Entry<K, V>> {
@@ -55,7 +57,6 @@ public class MyMap<K, V> implements MyIMap<K, V>, Iterable<Map.Entry<K, V>> {
         return map.entrySet();
     }
 
-    // These are required because Map<K,V> defines them
     @Override
     public V get(Object key) {
         return map.get(key);
@@ -75,4 +76,11 @@ public class MyMap<K, V> implements MyIMap<K, V>, Iterable<Map.Entry<K, V>> {
     public boolean containsKey(Object key) {
         return map.containsKey(key);
     }
+
+    @Override
+    public void setContent(Map<? extends K, ? extends V> newmap){
+        this.clear();
+        this.map.putAll(newmap);
+    }
+
 }

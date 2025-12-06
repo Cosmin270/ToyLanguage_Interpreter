@@ -13,4 +13,5 @@ public interface ISymbolTable {
     String toString();
     void clear();
     MyMap<String, IValue> getContent();
+    void setContent(MyMap<String, IValue> content);
 }

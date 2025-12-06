@@ -47,6 +47,6 @@ public class HeapWriting implements IStatement {
             throw new StatementException("Variable " + variableName + " is not of type RefType");
         }
         heapTable.updateHeapEntry(refValue.getAddress(), expressionValue);
-        return state;
+        return null;
     }
 }

@@ -1,9 +1,7 @@
 package model.state;
 
+import model.exception.MyException;
 import model.statement.IStatement;
-import view.Colors;
-
-import java.io.File;
 
 
 public class ProgramState{
@@ -13,7 +11,8 @@ public class ProgramState{
     private final FileTable fileTable;
     private final HeapTable heapTable;
     private final IStatement originalProgram;
-
+    private static int generalId = 0;
+    private int id;
 
     public ProgramState(IExecutionStack executionStack, ISymbolTable symbolTable, ListOut out,FileTable filetable,HeapTable heapTable ,IStatement originalProgram){
         this.executionStack = executionStack;
@@ -23,6 +22,8 @@ public class ProgramState{
         this.heapTable = heapTable;
         this.originalProgram = originalProgram;
         this.executionStack.push(originalProgram);
+        incrementGeneralId();
+        this.id = getGeneralId();
     }
     public ProgramState(IStatement originalProgram){
         this.executionStack = new StackExecutionStack();
@@ -32,14 +33,18 @@ public class ProgramState{
         this.heapTable = new HeapTable();
         this.originalProgram = originalProgram.deepCopy();
         this.executionStack.push(originalProgram);
+        incrementGeneralId();
+        this.id = getGeneralId();
     }
-
+    public static synchronized int getGeneralId(){return generalId;}
+    public static synchronized void incrementGeneralId(){generalId++;}
     public IExecutionStack getExecutionStack() {return this.executionStack;}
     public ISymbolTable getSymbolTable() {return this.symbolTable;}
     public ListOut getOut() {return this.out;}
     public FileTable getFileTable() {return this.fileTable;}
     public HeapTable getHeapTable() {return this.heapTable;}
     public IStatement getOriginalProgram() {return this.originalProgram;}
+
 
 
     @Override
@@ -50,15 +55,30 @@ public class ProgramState{
 //                "\nFileTable: \n" + Colors.RESET + Colors.BRIGHT_WHITE + this.fileTable.toString();
 //    }
     public String toString(){
-        return  "Execution Stack: \n" + this.executionStack.toString() +
+        return  "-".repeat(20) + "\n" +
+                "ID: " + this.id +
+                "\n\nExecution Stack: \n" + this.executionStack.toString() +
                 "\n\nSymbol Table: \n"  + this.symbolTable.toString() +
                 "\n\nOut: \n" + this.out.toString() +
                 "\n\nFileTable: \n" + this.fileTable.toString() +
-                "\n\nHeapTable: \n" + this.heapTable.toString();
+                "\n\nHeapTable: \n" + this.heapTable.toString() +
+                "\n" + "-".repeat(20) + "\n";
     }
 
     public ProgramState deepCopy(){
         return new ProgramState(this.executionStack, this.symbolTable, this.out, this.fileTable,this.heapTable ,this.originalProgram);
+    }
+
+    public boolean isNotComplete(){
+        return !this.executionStack.isEmpty();
+    }
+
+    public ProgramState oneStep() throws MyException {
+        if(this.executionStack.isEmpty()){
+            throw new MyException("Execution stack is empty");
+        }
+        IStatement statement = this.executionStack.pop();
+        return statement.execute(this);
     }
 }
 

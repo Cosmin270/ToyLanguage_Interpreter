@@ -44,7 +44,7 @@ public class New implements IStatement {
         }
         int addressUsed = heapTable.addHeapEntry(expressionValue);
         symbolTable.update(this.variableName, new RefValue(addressUsed, refValue.getLocationType()));
-        return state;
+        return null;
     }
     @Override
     public IStatement deepCopy() {

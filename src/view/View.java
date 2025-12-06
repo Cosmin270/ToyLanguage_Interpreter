@@ -1,6 +1,10 @@
 package view;
 
 import controller.Controller;
+import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 import model.exception.ADTException;
 import model.exception.ControllerException;
 import model.exception.ExpressionsException;
@@ -10,19 +14,10 @@ import model.expression.ValueExpression;
 import model.expression.VariableExpression;
 import model.state.ProgramState;
 import model.statement.*;
-import model.statement.file.OpenRFile;
-import model.statement.file.ReadFile;
 import model.type.BooleanType;
 import model.type.IntType;
-import model.type.StringType;
 import model.value.BooleanValue;
 import model.value.IntegerValue;
-import model.value.StringValue;
-
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class View {
@@ -184,7 +179,7 @@ public class View {
             cnt += 1;
         }
         this.controller.getRepository().decrement();
-        System.out.println(this.controller.getFinalOutput());
+        //System.out.println(this.controller.getFinalOutput());
         this.controller.getRepository().increment();
         System.out.println(Colors.RED + "~~~~~~~~~~~~~~THE END\uD83D\uDC4C\uD83C\uDFFB~~~~~~~~~~~~~~" + Colors.RESET);
         System.out.println();

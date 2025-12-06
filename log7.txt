@@ -1,0 +1,342 @@
+--------------------
+ID: 7
+
+Execution Stack: 
+(Ref(int) v,(NEW(v;20),(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5))))); 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(NEW(v;20),(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5)))); Ref(int) v; 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(NEW(v;20),(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5)))); Ref(int) v; 
+
+Symbol Table: 
+
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(NEW(v;20),(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5)))); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(NEW(v;20),(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5)))); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5))); NEW(v;20); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5))); NEW(v;20); 
+
+Symbol Table: 
+v -> RefValue(0, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5))); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(print(Heap Reading: v),(Heap Writing v 30,print(Heap Reading: v + 5))); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(Heap Writing v 30,print(Heap Reading: v + 5)); print(Heap Reading: v); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(Heap Writing v 30,print(Heap Reading: v + 5)); print(Heap Reading: v); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(Heap Writing v 30,print(Heap Reading: v + 5)); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+(Heap Writing v 30,print(Heap Reading: v + 5)); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+print(Heap Reading: v + 5); Heap Writing v 30; 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+print(Heap Reading: v + 5); Heap Writing v 30; 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 20; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+print(Heap Reading: v + 5); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 30; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+print(Heap Reading: v + 5); 
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+20; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 30; 
+--------------------
+
+--------------------
+ID: 7
+
+Execution Stack: 
+
+
+Symbol Table: 
+v -> RefValue(1, int); 
+
+Out: 
+20; 35; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 30; 
+--------------------
+

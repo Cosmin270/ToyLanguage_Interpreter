@@ -72,6 +72,6 @@ public class ReadFile implements IStatement {
         catch(NumberFormatException e){
             throw new StatementException("Use only integers: " + filenameValue.getValue());
         }
-        return state;
+        return null;
     }
 }
