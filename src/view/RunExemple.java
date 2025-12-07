@@ -32,9 +32,6 @@ public class RunExemple extends Command {
             System.out.println();
             cnt += 1;
         }
-        //this.controller.getRepository().decrement();
-        //System.out.println(this.controller.getFinalOutput());
-        //this.controller.getRepository().increment();
         System.out.println(Colors.RED + "~~~~~~~~~~~~~~THE END\uD83D\uDC4C\uD83C\uDFFB~~~~~~~~~~~~~~" + Colors.RESET);
         System.out.println();
     }

@@ -34,7 +34,7 @@ public class New implements IStatement {
             throw new StatementException("Variable " + this.variableName + " is not defined");
         }
         IValue value = state.getSymbolTable().getValue(this.variableName);
-        if(!(value.getType() instanceof RefType reftype)) {
+        if(!(value.getType() instanceof RefType)) {
             throw new StatementException("Type of " + this.variableName + " is not a ref");
         }
         IValue expressionValue = this.expression.evaluate(state.getSymbolTable(), state.getHeapTable());

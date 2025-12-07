@@ -2,9 +2,6 @@
 /// after fork make it show the final phase of each program states
 
 
-
-
-
 package view;
 
 import controller.Controller;
@@ -248,18 +245,9 @@ public class Interpreter {
                 IRepository repo10 = new Repository(state, "log10.txt");
                 Controller controller10 = new Controller(repo10);
                 String desc = """
-                        
-                        \t\tint v;
-                        \t\tRef int a;
-                        \t\tv=10;
-                        \t\tNew(a,22);
-                        \t\tfork( wH(a,30);
-                        \t\t      v=32;
-                        \t\t      print(v);
-                        \t\t      print(rH(a)) );
-                        \t\tprint(v);
-                        \t\tprint(rH(a));
+                        \t\t...
                         """;
                 return new Pair<>(desc, controller10);
         }
+        
 }

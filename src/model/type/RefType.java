@@ -1,7 +1,6 @@
 package model.type;
 
 import model.value.IValue;
-import model.type.IType;
 import model.value.RefValue;
 
 public class RefType implements IType {
@@ -16,8 +15,8 @@ public class RefType implements IType {
     }
     @Override
     public boolean equals(Object another){
-        if (another instanceof RefType){
-            return inner.equals(((RefType) another).getInner());
+        if (another instanceof RefType refType){
+            return inner.equals(refType.getInner());
         }
         else{
             return false;

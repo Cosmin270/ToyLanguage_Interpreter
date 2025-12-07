@@ -1,15 +1,11 @@
 package model.state;
 
+import java.io.BufferedReader;
+import java.util.Map;
 import model.map.MyMap;
-import model.value.IValue;
 import model.value.StringValue;
 
-import java.io.BufferedReader;
-import java.util.HashMap;
-import java.util.Map;
-
 public class FileTable implements IFileTable{
-//    private final Map<StringValue, BufferedReader> fileTable = new HashMap<>();
     private final MyMap<StringValue, BufferedReader> fileTable = new MyMap<>();
 
     @Override

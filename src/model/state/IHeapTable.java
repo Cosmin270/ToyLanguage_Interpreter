@@ -10,6 +10,7 @@ public interface IHeapTable {
     boolean isDefined(int address);
     MyMap<Integer, IValue> getHeap();
     void clear();
+    @Override
     String toString();
     void setContent(MyMap<Integer, IValue> heap);
     MyMap<Integer, IValue> getContent();

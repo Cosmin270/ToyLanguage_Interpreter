@@ -12,7 +12,7 @@ public class ProgramState{
     private final HeapTable heapTable;
     private final IStatement originalProgram;
     private static int generalId = 0;
-    private int id;
+    private final int id;
 
     public ProgramState(IExecutionStack executionStack, ISymbolTable symbolTable, ListOut out,FileTable filetable,HeapTable heapTable ,IStatement originalProgram){
         this.executionStack = executionStack;
@@ -45,15 +45,7 @@ public class ProgramState{
     public HeapTable getHeapTable() {return this.heapTable;}
     public IStatement getOriginalProgram() {return this.originalProgram;}
 
-
-
     @Override
-//    public String toString(){
-//        return Colors.CYAN + "Execution Stack: \n" + Colors.RESET + Colors.BRIGHT_WHITE + this.executionStack.toString() + Colors.RESET + Colors.CYAN +
-//                "\nSymbol Table: \n" + Colors.RESET + Colors.BRIGHT_WHITE + this.symbolTable.toString() + Colors.RESET + Colors.CYAN +
-//                "\nOut: \n" + Colors.RESET + Colors.BRIGHT_WHITE + this.out.toString() + Colors.RESET + Colors.CYAN +
-//                "\nFileTable: \n" + Colors.RESET + Colors.BRIGHT_WHITE + this.fileTable.toString();
-//    }
     public String toString(){
         return  "-".repeat(20) + "\n" +
                 "ID: " + this.id +

@@ -3,7 +3,7 @@ package model.list;
 import java.util.*;
 import model.exception.ADTException;
 
-public class MyList<T> implements MyIList<T>, Iterable<T> {
+public class MyList<T> implements MyIList<T> {
 
     private final ArrayList<T> list = new ArrayList<>();
 

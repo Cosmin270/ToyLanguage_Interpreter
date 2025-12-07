@@ -1,21 +1,18 @@
 package model.statement.file;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import model.exception.StatementException;
 import model.expression.IExpression;
-import model.state.FileTable;
 import model.state.ProgramState;
 import model.statement.IStatement;
 import model.type.StringType;
 import model.value.IValue;
 import model.value.StringValue;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class OpenRFile implements IStatement {
-    private IExpression exp;
+    private final IExpression exp;
 
     public OpenRFile(IExpression exp){this.exp = exp;}
 

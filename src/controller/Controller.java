@@ -66,9 +66,7 @@ public class Controller {
                 throw new ControllerException(e.getMessage());
             }
         });
-
-
-
+        
         MyList<Callable<ProgramState>> callList = prgList.stream()
                 .map((ProgramState p) -> (Callable<ProgramState>)(() -> { return p.oneStep(); }))
                 .collect(Collectors.toCollection(MyList::new));

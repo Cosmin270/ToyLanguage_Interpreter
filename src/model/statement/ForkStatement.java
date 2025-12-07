@@ -7,7 +7,7 @@ import model.state.*;
 import model.value.IValue;
 
 public class ForkStatement implements IStatement {
-    private IStatement statement;
+    private final IStatement statement;
 
     public ForkStatement(IStatement statement) {
         this.statement = statement;
