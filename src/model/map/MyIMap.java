@@ -1,10 +1,7 @@
 package model.map;
 
-import model.value.IValue;
-
 import java.util.Collection;
 import java.util.Map;
-import java.util.Set;
 
 
 
@@ -17,5 +14,4 @@ public interface MyIMap<K, V> extends Map<K, V>{
     Collection<V> values();
 //    Set<Map.Entry<K, V>> entrySet();
     void setContent(Map<? extends  K, ? extends V> content);
-
 }

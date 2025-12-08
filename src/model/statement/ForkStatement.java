@@ -2,8 +2,11 @@ package model.statement;
 
 
 import java.util.stream.Collectors;
+import model.exception.StatementException;
+import model.map.MyIMap;
 import model.map.MyMap;
 import model.state.*;
+import model.type.IType;
 import model.value.IValue;
 
 public class ForkStatement implements IStatement {
@@ -36,5 +39,10 @@ public class ForkStatement implements IStatement {
     @Override
     public String toString() {
         return "fork(" + statement.toString() + ")";
+    }
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        this.statement.typeCheck(typeEnv);
+        return typeEnv;
     }
 }

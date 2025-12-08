@@ -1,6 +1,7 @@
 package model.statement;
 
 import model.exception.StatementException;
+import model.map.MyIMap;
 import model.state.ProgramState;
 import model.type.IType;
 
@@ -31,5 +32,11 @@ public class VariableDeclarationStatement implements IStatement {
     @Override
     public IStatement deepCopy() {
         return new VariableDeclarationStatement(this.variableName, this.type.deepCopy());
+    }
+
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        typeEnv.put(this.variableName, this.type);
+        return typeEnv;
     }
 }

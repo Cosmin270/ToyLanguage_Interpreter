@@ -2,6 +2,7 @@ package model.expression;
 
 import model.exception.ExpressionsException;
 import model.exception.MyException;
+import model.map.MyIMap;
 import model.state.IHeapTable;
 import model.state.ISymbolTable;
 import model.type.*;
@@ -33,5 +34,18 @@ public record LogicalExpression(String operator, IExpression left, IExpression r
     public String toString(){
         return this.left.toString() + " " + this.operator + " " + this.right.toString();
     }
+    @Override
+    public IType typeCheck(MyIMap<String, IType> typeEnv) throws ExpressionsException{
+        IType type1, type2;
+        type1 = left.typeCheck(typeEnv);
+        type2 = right.typeCheck(typeEnv);
 
+
+        if(!type1.equals(new BooleanType()))
+            throw new ExpressionsException("First operand is not of type Bool");
+        if(!type2.equals(new BooleanType()))
+            throw new ExpressionsException("Second operand is not of type Bool");
+
+        return new BooleanType();
+    }
 }

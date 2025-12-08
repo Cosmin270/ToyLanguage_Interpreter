@@ -1,6 +1,9 @@
 package model.statement;
 
+import model.exception.StatementException;
+import model.map.MyIMap;
 import model.state.ProgramState;
+import model.type.IType;
 
 public class NoOperationStatement implements IStatement {
     @Override
@@ -13,4 +16,9 @@ public class NoOperationStatement implements IStatement {
     }
     @Override
     public String toString(){return "NopOperation";}
+
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        return null;
+    }
 }

@@ -2,8 +2,10 @@ package model.statement.heap;
 
 import model.exception.StatementException;
 import model.expression.IExpression;
+import model.map.MyIMap;
 import model.state.ProgramState;
 import model.statement.IStatement;
+import model.type.IType;
 import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
@@ -49,5 +51,15 @@ public class New implements IStatement {
     @Override
     public IStatement deepCopy() {
         return new New(this.variableName, this.expression);
+    }
+
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        IType typeVar = typeEnv.get(this.variableName);
+        IType typeExp = this.expression.typeCheck(typeEnv);
+
+        if(!(typeVar.equals(new RefType(typeExp))))
+            throw new StatementException("NEW stm: different types");
+        return typeEnv;
     }
 }

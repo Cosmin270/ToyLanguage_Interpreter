@@ -1,7 +1,3 @@
-/// Problem found:
-/// after fork make it show the final phase of each program states
-
-
 package view;
 
 import controller.Controller;
@@ -229,8 +225,7 @@ public class Interpreter {
                         \t\t}
                         \t\tprint(v);
                         """;
-                return new Pair<>(desc, controller9);
-    }
+                return new Pair<>(desc, controller9);}
         private static Pair<String, Controller> exemple10(){
                 IStatement ex10 = new CompoundStatement(new VariableDeclarationStatement("v", new IntType()),
                         new CompoundStatement(new VariableDeclarationStatement("a", new RefType(new IntType())),

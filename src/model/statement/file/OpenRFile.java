@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import model.exception.StatementException;
 import model.expression.IExpression;
+import model.map.MyIMap;
 import model.state.ProgramState;
 import model.statement.IStatement;
+import model.type.IType;
 import model.type.StringType;
 import model.value.IValue;
 import model.value.StringValue;
@@ -47,5 +49,11 @@ public class OpenRFile implements IStatement {
         }
         return null;
     }
-
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        IType typeExp = this.exp.typeCheck(typeEnv);
+        if(!(typeExp.equals(new StringType())))
+            throw new StatementException("Expression is not of type String");
+        return typeEnv;
+    }
 }

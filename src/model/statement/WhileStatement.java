@@ -2,8 +2,10 @@ package model.statement;
 
 import model.exception.StatementException;
 import model.expression.IExpression;
+import model.map.MyIMap;
 import model.state.ProgramState;
 import model.type.BooleanType;
+import model.type.IType;
 import model.value.BooleanValue;
 import model.value.IValue;
 
@@ -36,5 +38,16 @@ public class WhileStatement implements IStatement {
             state.getExecutionStack().push(statement);
         }
         return null;
+    }
+
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        IType typeExp = this.expression.typeCheck(typeEnv);
+
+        if(!(typeExp.equals(new BooleanType())))
+            throw new StatementException("Condition is not of type bool");
+
+        this.statement.typeCheck(typeEnv);
+        return typeEnv;
     }
 }

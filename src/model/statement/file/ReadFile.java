@@ -1,17 +1,18 @@
 package model.statement.file;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import model.exception.StatementException;
 import model.expression.IExpression;
+import model.map.MyIMap;
 import model.state.ProgramState;
 import model.statement.IStatement;
+import model.type.IType;
 import model.type.IntType;
 import model.type.StringType;
 import model.value.IValue;
 import model.value.IntegerValue;
 import model.value.StringValue;
-
-import java.io.BufferedReader;
-import java.io.IOException;
 
 
 public class ReadFile implements IStatement {
@@ -73,5 +74,17 @@ public class ReadFile implements IStatement {
             throw new StatementException("Use only integers: " + filenameValue.getValue());
         }
         return null;
+    }
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        IType typeVar = typeEnv.get(this.variableName);
+        IType typeExp = this.expression.typeCheck(typeEnv);
+
+        if(!(typeExp.equals(new StringType())))
+            throw new StatementException("Expression is not of type String");
+        if(!(typeVar.equals(new IntType())))
+            throw new StatementException("Variable is not of type Int");
+
+        return typeEnv;
     }
 }

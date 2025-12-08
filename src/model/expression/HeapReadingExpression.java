@@ -1,8 +1,10 @@
 package model.expression;
 
 import model.exception.ExpressionsException;
+import model.map.MyIMap;
 import model.state.IHeapTable;
 import model.state.ISymbolTable;
+import model.type.IType;
 import model.type.RefType;
 import model.value.IValue;
 import model.value.RefValue;
@@ -29,5 +31,15 @@ public class HeapReadingExpression implements IExpression {
     @Override
     public String toString() {
         return "Heap Reading: " + expression.toString();
+    }
+
+    @Override
+    public IType typeCheck(MyIMap<String, IType> typeEnv) throws ExpressionsException{
+        IType type = this.expression.typeCheck(typeEnv);
+
+        if(!(type instanceof RefType))
+            throw new ExpressionsException("Argument is not of type RefType");
+
+        return ((RefType)type).getInner();
     }
 }

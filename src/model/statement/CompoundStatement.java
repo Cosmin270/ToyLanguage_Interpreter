@@ -1,6 +1,9 @@
 package model.statement;
 
+import model.exception.StatementException;
+import model.map.MyIMap;
 import model.state.ProgramState;
+import model.type.IType;
 
 public record CompoundStatement(IStatement first, IStatement second) implements IStatement {
 
@@ -17,4 +20,9 @@ public record CompoundStatement(IStatement first, IStatement second) implements 
 
     @Override
     public IStatement deepCopy() {return new CompoundStatement(this.first.deepCopy(), this.second.deepCopy());}
+
+    @Override
+    public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
+        return second.typeCheck(first.typeCheck(typeEnv));
+    }
 }

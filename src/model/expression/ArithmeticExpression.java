@@ -1,10 +1,11 @@
 package model.expression;
 
 import model.exception.ExpressionsException;
+import model.map.MyIMap;
 import model.state.IHeapTable;
 import model.state.ISymbolTable;
-import model.value.*;
 import model.type.*;
+import model.value.*;
 
 public record ArithmeticExpression(String operator, IExpression left, IExpression right) implements IExpression {
 
@@ -38,5 +39,20 @@ public record ArithmeticExpression(String operator, IExpression left, IExpressio
     @Override
     public String toString(){
         return this.left.toString() + " " + this.operator + " " + this.right.toString();
+    }
+
+    @Override
+    public IType typeCheck(MyIMap<String, IType> typeEnv) throws ExpressionsException{
+        IType type1, type2;
+        type1 = left.typeCheck(typeEnv);
+        type2 = right.typeCheck(typeEnv);
+
+
+        if(!type1.equals(new IntType()))
+            throw new ExpressionsException("First operand is not of type INT");
+        if(!type2.equals(new IntType()))
+            throw new ExpressionsException("Second operand is not of type INT");
+
+        return new IntType();
     }
 }

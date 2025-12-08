@@ -1,10 +1,9 @@
 package model.map;
 
-import model.value.IValue;
-
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-public class MyMap<K, V> implements MyIMap<K, V>, Iterable<Map.Entry<K, V>> {
+public class MyMap<K, V> implements MyIMap<K, V>, Iterable<Map.Entry<K, V>>, Cloneable {
     private final Map<K, V> map = new HashMap<>();
 
     @Override
@@ -82,5 +81,28 @@ public class MyMap<K, V> implements MyIMap<K, V>, Iterable<Map.Entry<K, V>> {
         this.clear();
         this.map.putAll(newmap);
     }
+    
+    @Override
+@SuppressWarnings("unchecked")
+public MyIMap<K, V> clone() {
+    try {
+        MyMap<K, V> copy = (MyMap<K, V>) super.clone();
+        for (Map.Entry<K, V> entry : this.map.entrySet()) {
+            V value = entry.getValue();
 
+            V valueCopy;
+            if (value instanceof Cloneable) {
+                valueCopy = (V) value.getClass().getMethod("clone").invoke(value);
+            } else {
+                valueCopy = value; 
+            }
+
+            copy.map.put(entry.getKey(), valueCopy);
+        }
+
+        return copy;
+    } catch (CloneNotSupportedException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+        throw new AssertionError("Clone failed", e);
+    }
+}
 }
