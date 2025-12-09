@@ -81,9 +81,9 @@ public class ReadFile implements IStatement {
         IType typeExp = this.expression.typeCheck(typeEnv);
 
         if(!(typeExp.equals(new StringType())))
-            throw new StatementException("Expression is not of type String");
+            throw new StatementException("READ:Expression is not of type String");
         if(!(typeVar.equals(new IntType())))
-            throw new StatementException("Variable is not of type Int");
+            throw new StatementException("READ:Variable is not of type Int");
 
         return typeEnv;
     }

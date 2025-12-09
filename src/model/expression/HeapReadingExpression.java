@@ -38,7 +38,7 @@ public class HeapReadingExpression implements IExpression {
         IType type = this.expression.typeCheck(typeEnv);
 
         if(!(type instanceof RefType))
-            throw new ExpressionsException("Argument is not of type RefType");
+            throw new ExpressionsException("HEAP READING:Argument is not of type RefType");
 
         return ((RefType)type).getInner();
     }

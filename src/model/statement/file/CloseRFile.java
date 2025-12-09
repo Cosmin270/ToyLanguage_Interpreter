@@ -46,7 +46,7 @@ public class CloseRFile implements IStatement {
     public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
         IType typeExp = this.expression.typeCheck(typeEnv);
         if(!(typeExp.equals(new StringType())))
-            throw new StatementException("Expression is not of type String");
+            throw new StatementException("CLOSE:Expression is not of type String");
         return typeEnv;
     }
 }

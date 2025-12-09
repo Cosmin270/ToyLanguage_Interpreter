@@ -45,7 +45,7 @@ public class WhileStatement implements IStatement {
         IType typeExp = this.expression.typeCheck(typeEnv);
 
         if(!(typeExp.equals(new BooleanType())))
-            throw new StatementException("Condition is not of type bool");
+            throw new StatementException("WHILE:Condition is not of type bool");
 
         this.statement.typeCheck(typeEnv);
         return typeEnv;

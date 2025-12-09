@@ -59,7 +59,7 @@ public class New implements IStatement {
         IType typeExp = this.expression.typeCheck(typeEnv);
 
         if(!(typeVar.equals(new RefType(typeExp))))
-            throw new StatementException("NEW stm: different types");
+            throw new StatementException("NEW: different types");
         return typeEnv;
     }
 }

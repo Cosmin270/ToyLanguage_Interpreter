@@ -49,9 +49,9 @@ public record ArithmeticExpression(String operator, IExpression left, IExpressio
 
 
         if(!type1.equals(new IntType()))
-            throw new ExpressionsException("First operand is not of type INT");
+            throw new ExpressionsException("ARITHMETIC:First operand is not of type INT");
         if(!type2.equals(new IntType()))
-            throw new ExpressionsException("Second operand is not of type INT");
+            throw new ExpressionsException("ARITHMETIC:Second operand is not of type INT");
 
         return new IntType();
     }

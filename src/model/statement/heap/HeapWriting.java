@@ -58,7 +58,7 @@ public class HeapWriting implements IStatement {
         IType typeExp = this.expression.typeCheck(typeEnv);
 
         if(! (typeVar.equals(new RefType(typeExp))))
-            throw new StatementException("Different types");
+            throw new StatementException("HEAP WRITING:Different types");
         return typeEnv;
     }
 }

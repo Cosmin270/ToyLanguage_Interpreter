@@ -1,5 +1,5 @@
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (int v,(Ref(int) a,(v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))))))); 
@@ -18,7 +18,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (Ref(int) a,(v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))))); int v; 
@@ -37,7 +37,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (Ref(int) a,(v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))))); int v; 
@@ -56,7 +56,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (Ref(int) a,(v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))))); 
@@ -75,7 +75,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (Ref(int) a,(v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))))); 
@@ -94,7 +94,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))))); Ref(int) a; 
@@ -113,7 +113,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))))); Ref(int) a; 
@@ -132,7 +132,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))))); 
@@ -151,7 +151,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (v = 10,(NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))))); 
@@ -170,7 +170,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))); v = 10; 
@@ -189,7 +189,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))); v = 10; 
@@ -208,7 +208,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))); 
@@ -227,7 +227,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (NEW(a;22),(fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a)))); 
@@ -246,7 +246,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))); NEW(a;22); 
@@ -265,7 +265,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))); NEW(a;22); 
@@ -284,7 +284,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))); 
@@ -303,7 +303,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))),(print(v),print(Heap Reading: a))); 
@@ -322,7 +322,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (print(v),print(Heap Reading: a)); fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))); 
@@ -341,7 +341,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (print(v),print(Heap Reading: a)); fork((Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a))))); 
@@ -360,7 +360,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (print(v),print(Heap Reading: a)); 
@@ -379,7 +379,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a)))); 
@@ -398,7 +398,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 (print(v),print(Heap Reading: a)); 
@@ -417,7 +417,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (Heap Writing a 30,(v = 32,(print(v),print(Heap Reading: a)))); 
@@ -436,7 +436,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 print(Heap Reading: a); print(v); 
@@ -455,7 +455,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (v = 32,(print(v),print(Heap Reading: a))); Heap Writing a 30; 
@@ -474,7 +474,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 print(Heap Reading: a); print(v); 
@@ -493,7 +493,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (v = 32,(print(v),print(Heap Reading: a))); Heap Writing a 30; 
@@ -512,7 +512,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 print(Heap Reading: a); 
@@ -531,7 +531,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (v = 32,(print(v),print(Heap Reading: a))); 
@@ -550,7 +550,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 10
+ID: 9
 
 Execution Stack: 
 print(Heap Reading: a); 
@@ -569,7 +569,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (v = 32,(print(v),print(Heap Reading: a))); 
@@ -588,10 +588,29 @@ HeapTable:
 --------------------
 
 --------------------
+ID: 9
+
+Execution Stack: 
+
+
+Symbol Table: 
+a -> RefValue(1, int); v -> 10; 
+
+Out: 
+10; 30; 
+
+FileTable: 
+
+
+HeapTable: 
+1 -> 30; 
+--------------------
+
+--------------------
 ID: 10
 
 Execution Stack: 
-
+(print(v),print(Heap Reading: a)); v = 32; 
 
 Symbol Table: 
 a -> RefValue(1, int); v -> 10; 
@@ -607,7 +626,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (print(v),print(Heap Reading: a)); v = 32; 
@@ -626,26 +645,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
-
-Execution Stack: 
-(print(v),print(Heap Reading: a)); v = 32; 
-
-Symbol Table: 
-a -> RefValue(1, int); v -> 10; 
-
-Out: 
-10; 30; 
-
-FileTable: 
-
-
-HeapTable: 
-1 -> 30; 
---------------------
-
---------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (print(v),print(Heap Reading: a)); 
@@ -664,7 +664,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 (print(v),print(Heap Reading: a)); 
@@ -683,7 +683,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 print(Heap Reading: a); print(v); 
@@ -702,7 +702,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 print(Heap Reading: a); print(v); 
@@ -721,7 +721,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 print(Heap Reading: a); 
@@ -740,7 +740,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 print(Heap Reading: a); 
@@ -759,7 +759,7 @@ HeapTable:
 --------------------
 
 --------------------
-ID: 11
+ID: 10
 
 Execution Stack: 
 

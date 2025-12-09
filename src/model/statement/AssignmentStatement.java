@@ -41,7 +41,7 @@ public record AssignmentStatement(String variableName, IExpression expression) i
         IType typeExp = this.expression.typeCheck(typeEnv);
 
         if(!(typeVar.equals(typeExp)))
-            throw new StatementException("Diferrent types");
+            throw new StatementException("ASSIGNMENT:Diferrent types");
         
         return typeEnv;
     }

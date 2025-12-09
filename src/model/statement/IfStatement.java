@@ -54,7 +54,7 @@ public class IfStatement implements IStatement {
         IType typeExp = this.expression.typeCheck(typeEnv);
 
         if(!(typeExp.equals(new BooleanType())))
-            throw new StatementException("The condition is not of type bool");
+            throw new StatementException("IF:The condition is not of type bool");
 
         this.thenStatement.typeCheck(typeEnv);
         this.elseStatement.typeCheck(typeEnv);

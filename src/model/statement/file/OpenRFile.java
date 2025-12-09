@@ -53,7 +53,7 @@ public class OpenRFile implements IStatement {
     public MyIMap<String, IType> typeCheck(MyIMap<String, IType> typeEnv) throws StatementException{
         IType typeExp = this.exp.typeCheck(typeEnv);
         if(!(typeExp.equals(new StringType())))
-            throw new StatementException("Expression is not of type String");
+            throw new StatementException("OPEN:Expression is not of type String");
         return typeEnv;
     }
 }

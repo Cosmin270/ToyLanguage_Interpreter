@@ -42,9 +42,9 @@ public record LogicalExpression(String operator, IExpression left, IExpression r
 
 
         if(!type1.equals(new BooleanType()))
-            throw new ExpressionsException("First operand is not of type Bool");
+            throw new ExpressionsException("LOGICAL:First operand is not of type Bool");
         if(!type2.equals(new BooleanType()))
-            throw new ExpressionsException("Second operand is not of type Bool");
+            throw new ExpressionsException("LOGICAL:Second operand is not of type Bool");
 
         return new BooleanType();
     }

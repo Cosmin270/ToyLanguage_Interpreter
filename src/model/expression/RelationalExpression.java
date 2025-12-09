@@ -4,6 +4,7 @@ import model.exception.ExpressionsException;
 import model.map.MyIMap;
 import model.state.IHeapTable;
 import model.state.ISymbolTable;
+import model.type.BooleanType;
 import model.type.IType;
 import model.type.IntType;
 import model.value.BooleanValue;
@@ -45,10 +46,10 @@ public record RelationalExpression(String operator, IExpression left, IExpressio
 
 
         if(!type1.equals(new IntType()))
-            throw new ExpressionsException("First operand is not of type INT");
+            throw new ExpressionsException("RELATIONAL:First operand is not of type INT");
         if(!type2.equals(new IntType()))
-            throw new ExpressionsException("Second operand is not of type INT");
+            throw new ExpressionsException("RELATIONAL:Second operand is not of type INT");
 
-        return new IntType();
+        return new BooleanType();
     }
 }
